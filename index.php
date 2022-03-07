@@ -16,7 +16,7 @@ $navbar = "navbar";
 // Header
 require_once './templates/header.php';
 ?>
-<h1>Bienvenue sur annonces.com</h1>
+<h1>Nos 15 dernières annonces</h1>
 
 <table class="table table-striped mt-5">
     <thead>

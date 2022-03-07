@@ -164,4 +164,17 @@ class AdvertManager extends DataBase
 
         return $delete_advert->rowCount();
     }
+
+    public function book($id, $message)
+	{
+		       // Préparation de la requète SQL
+			   $book = $this->getPDO()->prepare("UPDATE `advert` SET `reservation_message` = :reservation_message WHERE `id_advert` = :id");
+			   // On associe les différentes variables aux marqueurs en respectant les types
+			   $book->bindValue(':id', intval($id), PDO::PARAM_INT);
+			   $book->bindValue(':reservation_message', $message, PDO::PARAM_STR);
+			   // On execute la requète
+			   $book->execute();
+			   $book->closeCursor();    
+			   return( $book->rowCount() );
+	}
 }
