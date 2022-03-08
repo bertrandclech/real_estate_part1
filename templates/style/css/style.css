@@ -31,6 +31,10 @@ footer, .btn-floating {
     color: lightgrey;
 }
 
+.btn-warning {
+    background-color: darkgreen !important;
+}
+
 /* .container {
     margin: 0 50px;
 } */

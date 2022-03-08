@@ -20,7 +20,7 @@ $formValidator = new FormValidator(
 	$formBuilder,
 	[
 		'id_avert' => FormConstraints::int((int) htmlspecialchars($_GET['id'])),
-		'title' => FormConstraints::length(@$formBuilder->method['title'], 2, 30),
+		'title' => FormConstraints::length(@$formBuilder->method['title'], 2, 50),
 		'description' => FormConstraints::string(@$formBuilder->method['description']),
 		'postcode' => FormConstraints::postalCode(@$formBuilder->method['postcode']),
 		'city' => FormConstraints::string(@$formBuilder->method['city']),
@@ -79,7 +79,7 @@ require_once './templates/header.php';
 		</div>
 		<div class="form-group">
 			<label>Description</label>
-			<textarea class="form-control" id="floatingTextarea" value="<?= $advert['description']; ?>"></textarea>
+			<textarea class="form-control" id="floatingTextarea" name="description" value="<?= $advert['description']; ?>"></textarea>
 		</div>
 		<div class="row g-5">
 				<div class="col">

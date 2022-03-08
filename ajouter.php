@@ -64,17 +64,17 @@ require_once './templates/header.php'; ?>
 
 		<div class="form-group">
 			<label>Description</label>
-			<textarea class="form-control" id="floatingTextarea"></textarea>
+			<textarea class="form-control"  name="description" id="floatingTextarea"></textarea>
 		</div>
 
 		<div class="row g-5">
 			<div class="col">
 			<label>Code postal</label>
-				<input type="text" class="form-control" name="code postal" minlength="5" maxlength="5">
+				<input type="text" class="form-control" name="postcode" minlength="5" maxlength="5">
 			</div>
 			<div class="col">
 			<label>Ville</label>
-				<input type="text" class="form-control" name="ville" minlength="2" maxlength="50">
+				<input type="text" class="form-control" name="city">
 			</div>
 		</div>
 
@@ -96,7 +96,7 @@ require_once './templates/header.php'; ?>
 						<div class="input-group-text">€</div>
 					</div>
 				</div>
-			</div> 
+			</div>
 		</div>
 
 		<a href="index.php" class="btn btn-outline-secondary m-3">Annuler</a>

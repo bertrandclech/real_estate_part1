@@ -27,7 +27,7 @@ require_once './templates/header.php';
 
 <div class="row mt-5">
 
-    <div class="col-10">
+    <div class="col-14">
         <table class="table table-striped">
             <thead>
                 <tr>
