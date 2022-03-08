@@ -21,7 +21,9 @@ $navbar = "navbar";
 // Header
 require_once './templates/header.php';
 ?>
+<div class="text-center">
 <h1>Liste de toutes nos annonces</h1>
+</div>
 
 <div class="container-fluid">
 
@@ -30,8 +32,7 @@ require_once './templates/header.php';
             <tr>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>Code postal</th>
-                <th>ville</th>
+                <th>Localisation</th>
                 <th>Catégorie</th>
                 <th>Prix</th>
                 <th>Date de création</th>
@@ -45,15 +46,14 @@ require_once './templates/header.php';
                 <tr>
                     <td><?= mb_strtoupper($advert['title']); ?></td>
                     <td><?= ucfirst(substr($advert['description'], 0, 10) . "..."); ?></td>
-                    <td><?= $advert['postcode']; ?></td>
-                    <td><?= $advert['city']; ?></td>
+                    <td><?= $advert['postcode']. ' - ' .$advert['city']; ?></td>
                     <td><?= $advert['category']; ?></td>
                     <td><?= $advert['price']; ?> €</td>
                     <td><?= $advert['created_at']; ?></td>
 
                     <td class="text-right">
-                        <a href="details.php?id=<?= $advert['id_advert']; ?>" class="btn btn-warning btn-sm mb-1">Voir le détail</a>
-                        <a href="editer.php?id=<?= $advert['id_advert']; ?>" class="btn btn-primary btn-sm mb-1">Mettre à jour</a>
+                        <a href="details.php?id=<?= $advert['id_advert']; ?>" class="btn btn-primary btn-sm mb-1">Voir le détail</a>
+                        <a href="editer.php?id=<?= $advert['id_advert']; ?>" class="btn btn-success btn-sm mb-1">Mettre à jour</a>
                         <a onclick="return confirm('Voulez-vous bien supprimer ?');" href="index.php?id=<?= $advert['id_advert']; ?>&type=supprimer" class="btn btn-danger btn-sm">Supprimer</a>
                     </td>
                 </tr>

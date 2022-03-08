@@ -79,36 +79,40 @@ require_once './templates/header.php';
 		</div>
 		<div class="form-group">
 			<label>Description</label>
-			<input type="text" class="form-control" name="description" value="<?= $advert['description']; ?>">
+			<textarea class="form-control" id="floatingTextarea" value="<?= $advert['description']; ?>"></textarea>
 		</div>
-		<div class="form-group">
-			<label>Code postal</label>
-			<input type="number" class="form-control" name="postcode" value="<?= $advert['postcode']; ?>" />
+		<div class="row g-5">
+				<div class="col">
+					<label>Code postal</label>
+					<input type="text" class="form-control" name="postcode" minlength="5" maxlength="5" value="<?= $advert['postcode']; ?>" />
+				</div>
+				<div class="col">
+					<label>Ville</label>
+					<input type="text" class="form-control" name="city" value="<?= $advert['city']; ?>" />
+				</div>
 		</div>
-		<div class="form-group">
-			<label>Ville</label>
-			<input type="text" class="form-control" name="city" value="<?= $advert['city']; ?>" />
-		</div>
-		<div class="form-group">
-			<label>Type</label>
-			<?= $advert['value'] ?>
 
-			<select name="category" class="custom-select">
-				<option value="<?= $advert['category_id'] ?>"><?= $advert['category'] ?></option>
-				<?php foreach ($categories as $cat) : ?>
-					<option value="<?= $cat['id_category'] ?>">
-						<?= $cat['value'] ?>
-					</option>
-				<?php endforeach; ?>
+		<div class="row g-5">
+			<div class="col">
+				<label>Type</label>
+				<?= $advert['value'] ?>
+				<select name="category" class="custom-select">
+					<option value="<?= $advert['category_id'] ?>"><?= $advert['category'] ?></option>
+					<?php foreach ($categories as $cat) : ?>
+						<option value="<?= $cat['id_category'] ?>">
+							<?= $cat['value'] ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+			</div>
 
-			</select>
-		</div>
-		<div class="form-group">
-			<label>Prix</label>
-			<div class="input-group">
-				<input type="number" step="10" class="form-control" name="price" value="<?= $advert['price']; ?>" />
-				<div class="input-group-append">
-					<div class="input-group-text">€</div>
+			<div class="col">
+				<label>Prix</label>
+				<div class="input-group">
+					<input type="number" step="10" class="form-control" name="price" value="<?= $advert['price']; ?>" />
+					<div class="input-group-append">
+						<div class="input-group-text">€</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -116,7 +120,7 @@ require_once './templates/header.php';
 			<input type="hidden" class="form-control" name="reservation_message" value="disponible" />
 		</div>
 
-		<a href="index.php" class="btn btn-outline-secondary">Annuler</a>
+		<a href="index.php" class="btn btn-outline-secondary m-2">Annuler</a>
 		<input type="submit" class="btn btn-primary" name="submit" value="Modifier">
 	</form>
 

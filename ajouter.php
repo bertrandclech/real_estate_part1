@@ -23,7 +23,7 @@ $formValidator = new FormValidator(
 
 if ($formValidator->isSubmit()) {
 	if ($formValidator->isValide()) {
-		
+
 		// If Form is valide insert datas in entity
 		$advertEntity = new AdvertEntity(
 			[
@@ -45,15 +45,15 @@ if ($formValidator->isSubmit()) {
 }
 
 // Ttile
-$title = "Ajouter une annonce";	
+$title = "Ajouter une annonce";
 // Navbar
 $navbar = "navbar";
 // Header
 require_once './templates/header.php'; ?>
 
-<h1>Nouvelle annonce</h1>
+<h1 class="text-center">Nouvelle annonce</h1>
 
-<div class="container-fluid">
+<div class="container">
 
 	<form method="post" class="mt-5" novalidate>
 
@@ -64,39 +64,42 @@ require_once './templates/header.php'; ?>
 
 		<div class="form-group">
 			<label>Description</label>
-			<input type="text" class="form-control" name="description">
+			<textarea class="form-control" id="floatingTextarea"></textarea>
 		</div>
 
-		<div class="form-group">
+		<div class="row g-5">
+			<div class="col">
 			<label>Code postal</label>
-			<input type="text" class="form-control" name="postcode">
-		</div>
-
-		<div class="form-group">
+				<input type="text" class="form-control" name="code postal" minlength="5" maxlength="5">
+			</div>
+			<div class="col">
 			<label>Ville</label>
-			<input type="text" class="form-control" name="city">
-		</div>
-		
-		<div class="form-group">
-			<label>Type</label>
-			<select name="category" class="custom-select">
-				<?php foreach ($adManager->showCategoryList() as $cat) : ?>
-					<option value="<?= $cat['id_category'] ?>"><?= $cat['value'] ?></option>
-				<?php endforeach; ?>
-			</select>
-		</div>
-
-		<div class="form-group">
-			<label>Prix</label>
-			<div class="input-group">
-				<input type="text" class="form-control" name="price">
-				<div class="input-group-append">
-					<div class="input-group-text">€</div>
-				</div>
+				<input type="text" class="form-control" name="ville" minlength="2" maxlength="50">
 			</div>
 		</div>
 
-		<a href="index.php" class="btn btn-outline-secondary">Annuler</a>
+		<div class="row g-5">
+			<div class="col">
+				<label>Type</label>
+				<select name="category" class="custom-select">
+					<?php foreach ($adManager->showCategoryList() as $cat) : ?>
+						<option value="<?= $cat['id_category'] ?>"><?= $cat['value'] ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+
+			<div class="col">
+				<label>Prix</label>
+				<div class="input-group">
+					<input type="text" class="form-control" name="price">
+					<div class="input-group-append">
+						<div class="input-group-text">€</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+
+		<a href="index.php" class="btn btn-outline-secondary m-3">Annuler</a>
 		<input type="submit" class="btn btn-primary" name="submit" value="Valider">
 	</form>
 </div>
